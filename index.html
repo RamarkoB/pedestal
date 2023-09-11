@@ -1,0 +1,113 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost">
+<div id="background">
+    <p id="caption">On a pedestal before you lays an incredibly profound artwork</p>
+    <div id="spotlight"> </div>
+    <p id="text"> </p>
+    <div id="pedestal"> </div>
+<div>
+
+<style>
+    #title, #caption {
+        position: absolute;
+        left: 50%;
+        text-align: center;
+    }
+
+    #title {
+        top: 10px;
+        left: calc(50% - 46.25px);
+    }
+
+    #caption {
+        left: calc(50% - 107px);
+        top: 50px;
+        max-width: 214px;
+    }
+
+    body {
+        font-family: Jost;
+        overflow: hidden;
+        margin: 0;
+        text-align: center;
+    }
+
+    h2 {
+        margin-top: 20px;
+    }
+
+    #pedestal {
+        position: absolute;
+        bottom: 0;
+        left: calc(50% - 50px);
+        width: 100px;
+        height: 30%;
+        background: radial-gradient(at bottom, #fff 50%, #ccc);
+    }
+
+    #background {
+        background: radial-gradient(circle, #fff 10%, #ccc 25%);
+        width:100vw;
+        height:100vh;
+    }
+
+    #spotlight {
+        width:100%;
+        height: 100%;
+        opacity: 30%;
+    }
+
+    .left {
+        background: radial-gradient(circle at left, blue 20%, #fff 40%);
+    }
+</style>
+
+<script>
+    function randInt(max) {
+        return Math.floor(Math.random() * max);
+    }
+
+    function randRange(min, max) {
+        return min + Math.floor(Math.random() * (max - min));
+    }
+
+    function spotlight() {
+        const texts = ["This artwork seems to convey the complexity of human emotions, perhaps reflecting the artist's inner struggles.", 
+        "It could be a commentary on the fragility of nature and the urgent need for environmental conservation.", 
+        "The use of contrasting colors suggests a theme of duality and the constant tension between opposing forces.", 
+        "The abstract shapes and lines might symbolize the chaos and uncertainty of modern life.", 
+        "The central figure appears isolated, hinting at themes of loneliness and alienation in society.", 
+        "The intricate details in the background hint at hidden layers of meaning, inviting viewers to delve deeper into the narrative.", 
+        "The choice of materials and textures could be a statement on the intersection of art and technology in the digital age.", 
+        "The repeated motifs throughout the piece could represent the cyclical nature of history and human behavior.", 
+        "The absence of distinct figures may symbolize anonymity and the loss of individual identity in a fast-paced world.", 
+        "The juxtaposition of light and shadow creates a sense of ambiguity, allowing viewers to project their own interpretations onto the artwork.",
+        "The artwork may subtly challenge traditional gender roles, with its focus on a strong, central female figure who commands attention.",
+        "The use of vibrant colors and fluid forms could be a celebration of feminine energy and empowerment.",
+        "The composition's balance and harmony may represent the idea of harmony and balance within oneself, a central theme in feminist thought.",
+        "The juxtaposition of hard and soft lines may symbolize the dichotomy between strength and vulnerability often associated with the feminist movement.",
+        "The piece might explore the concept of body positivity and self-acceptance, challenging conventional beauty standards.",
+        "The artwork may serve as a visual metaphor for breaking free from the constraints of patriarchal structures and societal expectations.",
+        "The intricate interplay of colors and shapes might symbolize the interconnectedness of humanity with nature, emphasizing our responsibility to protect the environment.",
+        "The central figure could be seen as a representation of Mother Earth, underscoring the importance of ecological awareness and sustainable living.",
+        "The use of diverse materials in the artwork may reflect the multicultural tapestry of society, promoting inclusivity and celebrating the beauty of cultural diversity.",
+        "The blending of religious symbols and secular elements may suggest a harmonious coexistence between spirituality and the modern world.",
+        "The juxtaposition of light and dark tones might be a commentary on the ongoing struggle for racial equality and social justice.",
+        "The patterns and motifs throughout the piece could symbolize the interconnectedness of all races, reinforcing the idea that we are fundamentally one human race.",
+        "The absence of specific religious icons or imagery could signify a call for unity and tolerance among various faiths and beliefs.",
+        "The chaotic composition may mirror the complexities of contemporary society, where conflicting ideas and values often collide.",
+        "The repeated use of geometric shapes could signify the structured nature of societal systems and the need for reform and renewal.",
+        "The artwork's open-ended interpretation invites viewers to reflect on their own roles in shaping a more inclusive, sustainable, and harmonious world."
+    ]
+        
+        const light = document.getElementById("spotlight");
+        const top = `${randRange(10, 90)}%`;
+        const left = `${randRange(10, 90)}%`;
+        const color = `rgb(${randInt(255)} ${randInt(255)} ${randInt(255)})`
+        light.style = `background: radial-gradient(circle at ${top} ${left}, ${color} 20%, #fff 40%);`;
+        document.getElementById("text").innerText = texts[randInt(texts.length)];
+        document.getElementById("text").style = `position: absolute; left:calc(${top} - 10%); top: ${left}; overflow-wrap: normal; color:white; max-width: 20%;`;
+        setTimeout(spotlight, 5000);
+    }
+
+    spotlight();
+</script>
